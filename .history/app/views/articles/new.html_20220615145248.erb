@@ -1,0 +1,23 @@
+<h1>Create a new Article</h1>
+<%if @article.errors.any?%>
+    <%@article.errors.full_messages.each do |msg|%>
+    <ul>
+       <li> <%=msg%> </li>
+    </ul>
+    <% end %>
+<%elsif @article.title != nil%>
+    <h5>Article is successfully created</h5> 
+<%end%>
+<%= form_with scope: :article, url: articles_path, local: true do |f|%>
+<p>
+<%= f.label(:title)%> <>
+<%= f.text_field(:title)%>
+</p>
+<p>
+<%= f.label(:description)%>
+<%= f.text_area :description%>
+</p>
+<p>
+<%= f.submit%>
+</p>
+<%end%>
