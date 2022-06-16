@@ -1,0 +1,24 @@
+<h1>Create a new Article</h1>
+<%if @article.errors.any?%>
+    <%@article.errors.full_messages.each do |msg|%>
+    <ul>
+       <li> <%=msg%> </li>
+    </ul>
+    <% end %>
+<%end%>
+<%= form_with scope: :article, url: articles_path, local: true do |f|%>
+    <p>
+    <%= f.label(:title)%> <br/>
+    <%= f.text_field(:title)%>
+    </p>
+    <p>
+    <%= f.label(:description)%> <br/>
+    <%= f.text_area :description%>
+    </p>
+    <p>
+    <%= f.submit%>
+    </p>
+    <% end %>
+<%end%>
+<%# <%= render 'form' %>
+<%= link_to "Back to Articles List", articles_path, method: :get, class:"btn btn-secondary", style: "margin-right: 20px"%>
