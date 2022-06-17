@@ -1,0 +1,11 @@
+<%if @article.errors.any?%>
+    <div class="alert alert-danger alert-danger-dismissible fade show" role="alert">
+        <h4 class="alert-heading">You need to follow these rules to create a new article:</h4>
+        <%@article.errors.full_messages.each do |msg|%>
+            <ul>
+                <li> <%=msg%> </li>
+                        <% end %>
+            </ul>
+
+    </div>
+<%end%>

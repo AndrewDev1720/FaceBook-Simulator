@@ -1,0 +1,26 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+// .navbar {
+//   background-color: #000000 !important;
+// }
+
+// .nav-link {
+//     color: white !important;
+// }
+
+#logo {
+    font-size: 1.7em;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+#home-container{
+    margin-top: 25px;
+}
+
+.jumbotron{
+    background-image: asset-url('jumbotron.jpg');
+    background-position: center center;
+    background-repeat: ;
+}

@@ -1,0 +1,9 @@
+<div id="page-content">
+    <h1 class ="text-center mt-4">Edit this article</h1>
+    <div class = "form-block">
+    <%= render 'form'%>
+    </div>
+    <p>
+    <%= link_to "Delete this article", article_path(@article.id), method: :delete, data:{confirm: "Are you sure?"}, class:"btn btn-danger"%>
+    </p>
+</div>

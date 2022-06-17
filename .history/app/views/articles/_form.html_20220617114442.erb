@@ -1,0 +1,21 @@
+<%if @article.errors.any?%>
+    <%@article.errors.full_messages.each do |msg|%>
+    <ul>
+       <li> <%=msg%> </li>
+    </ul>
+    <% end %>
+<%end%>
+<%= form_with(model: @article, local: true) do |f|%>
+    <div class="form-group row">
+        <%= f.label :title, class: "col-2 col-form-label"%> <br/>
+        <div class="col-10"><%= f.text_field(:title, class: "form-control")%></div>
+    </div>
+    <p>
+    <%= f.label(:description)%> <br/>
+    <%= f.text_area :description%>
+    </p>
+    <p>
+    <%= f.submit class:"btn btn-secondary", style: "margin-right: 20px"%>
+    
+    </p>
+<%end%>

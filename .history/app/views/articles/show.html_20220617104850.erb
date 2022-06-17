@@ -1,0 +1,8 @@
+<h1>This is the post</h1>
+<p><strong>Title: </strong><%=@article.title%></p>
+<p><strong>Description: </strong><%=@article.description%></p>
+
+<p>
+    <%= link_to "Back to Article List", articles_path, class:"btn btn-secondary", style: "margin-right:20px"%>
+    <%= link_to "Edit this article", edit_article_path(@article.id), class:"btn btn-secondary"%>
+</p>

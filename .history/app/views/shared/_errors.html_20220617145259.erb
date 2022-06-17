@@ -1,0 +1,16 @@
+    <%if @article.errors.any?%>
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">You need to follow these rules to create a new article:</h4>
+        <%@article.errors.full_messages.each do |msg|%>
+            <ul>
+             <li> <%=msg%> </li>
+            </ul>
+        <% end %>
+    </div>
+        <h2 style = "font-size: 30px">You need to follow these rules to create a new article:</h2>
+        <%@article.errors.full_messages.each do |msg|%>
+        <ul>
+           <li> <%=msg%> </li>
+        </ul>
+        <% end %>
+    <%end%>
