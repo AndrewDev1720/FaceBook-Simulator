@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_06_17_093051) do
     t.text "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "user_id"
+    t.integer "user_id"ra
   end
 
   create_table "users", force: :cascade do |t|
