@@ -1,0 +1,17 @@
+<%if obj.errors.any?%>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%if obj.class.name == "User"%>
+          <h4 class="alert-heading">You need to follow these rules to create a new user</h4>
+        <%else%>
+            <h4 class="alert-heading">You need to follow these rules to create an article:</h4>
+        <%end%>
+        <%obj.errors.full_messages.each do |msg|%>
+            <ul>
+                <li> <%=msg%> </li>
+            </ul>
+        <% end %> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<%end%>
