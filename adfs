@@ -1,0 +1,50 @@
+[1mdiff --git a/db/schema.rb b/db/schema.rb[m
+[1mindex aa3d569..efce74a 100644[m
+[1m--- a/db/schema.rb[m
+[1m+++ b/db/schema.rb[m
+[36m@@ -22,6 +22,7 @@[m [mActiveRecord::Schema.define(version: 2022_06_30_071220) do[m
+     t.datetime "updated_at"[m
+     t.integer "user_id"[m
+   end[m
+[32m+[m
+   create_table "comments", force: :cascade do |t|[m
+     t.integer "user_id"[m
+     t.string "body"[m
+[36m@@ -30,12 +31,14 @@[m [mActiveRecord::Schema.define(version: 2022_06_30_071220) do[m
+     t.datetime "created_at", precision: 6, null: false[m
+     t.datetime "updated_at", precision: 6, null: false[m
+   end[m
+[32m+[m
+   create_table "friend_requests", force: :cascade do |t|[m
+     t.integer "requestor_id", null: false[m
+     t.integer "receiver_id"[m
+     t.datetime "created_at", precision: 6, null: false[m
+     t.datetime "updated_at", precision: 6, null: false[m
+   end[m
+[32m+[m
+   create_table "friendships", force: :cascade do |t|[m
+     t.bigint "user_id", null: false[m
+     t.integer "friend_id"[m
+[36m@@ -43,6 +46,7 @@[m [mActiveRecord::Schema.define(version: 2022_06_30_071220) do[m
+     t.datetime "updated_at", precision: 6, null: false[m
+     t.index ["user_id"], name: "index_friendships_on_user_id"[m
+   end[m
+[32m+[m
+   create_table "likes", force: :cascade do |t|[m
+     t.integer "user_id"[m
+     t.integer "likable_id"[m
+[36m@@ -50,6 +54,7 @@[m [mActiveRecord::Schema.define(version: 2022_06_30_071220) do[m
+     t.datetime "created_at", precision: 6, null: false[m
+     t.datetime "updated_at", precision: 6, null: false[m
+   end[m
+[32m+[m
+   create_table "users", force: :cascade do |t|[m
+     t.string "username"[m
+     t.string "email"[m
+[36m@@ -58,5 +63,6 @@[m [mActiveRecord::Schema.define(version: 2022_06_30_071220) do[m
+     t.string "password_digest"[m
+     t.boolean "admin", default: false[m
+   end[m
+[32m+[m
+   add_foreign_key "friendships", "users"[m
+ end[m
