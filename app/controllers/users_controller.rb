@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   before_action(:getUser, only: [:show, :edit, :update, :destroy])
   before_action(:check_owner, only: [:edit, :update, :destroy])
+
   def show
+    @friend_request = FriendRequest.new()
     @articles = @user.articles.paginate(page: params[:page], per_page: 5)
+    @comments = @user.comments
+    @comment = Comment.new()
   end
 
   def new
@@ -16,7 +20,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = "You do not have access to that directory"
+      session[:user_id] = @user.id
+      flash[:notice] = "Welcome to the Alpha Blog #{@user.username}, you have successfully signed up"
+      redirect_to articles_path
     else
       render 'new'
     end

@@ -42,6 +42,18 @@
               <%end%>
             </div>
           </li>
+          <%if logged_in?()%>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Friend Requests
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%for requestor in current_user.requestors do%>
+                  <%= link_to requestor.username, user_path(requestor), method: :get, class: "dropdown-item"%>
+                <%end%>
+              </div>
+            </li>
+          <%end%>
           <%if !logged_in?()%>
             <li class="nav-item">
                 <%= link_to "Login", login_path, class:"nav-link"%>

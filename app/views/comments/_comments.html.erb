@@ -1,0 +1,19 @@
+<div class="container">
+    <h5>Comments:</h5>
+    <%for comment in @comments do%>
+        <div class="row justify-content-xl-center">
+            <div class="col-9 mt-4">
+                <div class="card text-center shadow mb-1 bg-white rounded">
+                <div class="card-body">
+                    <p class="card-text"> <%= link_to(comment.user.username, user_path(comment.user)) if comment.user%>: <%=truncate(comment.body, length:100)%></p>
+                </div>
+                </div>
+            </div>
+            <%= render 'comments/replies', replies: comment.replies%>
+            <%= render 'comments/replyform', comment: comment%>
+        </div>
+    <%end%>
+</div>
+
+
+

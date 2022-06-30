@@ -1,0 +1,19 @@
+<div class="container">
+    <h5>All replies:</h5>
+    <%for reply in replies do%>
+        <div class="row justify-content-xl-center">
+            <div class="col-8 mt-4">
+                <div class="card text-center shadow mb-1 bg-dark rounded">
+                <div class="card-body">
+                    <p class="card-text text-white"> <%= link_to(reply.user.username, user_path(reply.user)) if reply.user%>: <%=truncate(reply.body, length:100)%> </p>
+                    <%if reply.likes.where(user_id: current_user, likable_id: reply.id, likable_type: "Comment").empty?%>
+                        <%=button_to "Like", likes_path, method: :post, params: { user_id: current_user.id, likable_id: reply.id, likable_type: "Comment" }, form_class: "inline_form button_to"%>
+                    <%else%>
+                        <%=button_to "Unlike", likes_path, method: :delete, params: { user_id: current_user.id, likable_id: reply.id, likable_type: "Comment" }, form_class: "inline_form button_to"%> 
+                    <%end%>  
+                </div>
+                </div>
+            </div>
+        </div>
+    <%end%>
+</div>

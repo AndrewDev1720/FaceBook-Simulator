@@ -1,0 +1,21 @@
+<div class="container-xl">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <%= form_with(model: @comment, class:"shadow p-3 mb-3 rounded", local: true) do |f|%>
+                <div class="form-group row">
+                    <%= f.label :comment, class: "col-2 col-form-label text-black"%> <br/>
+                    <div class="col-10"><%= f.text_field(:body, class: "form-control shadow rounded", placeholder: "Comment to this post")%></div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-10"><%= f.hidden_field :user_id, value: current_user.id, rows: 10%></div>
+                    <div class="col-10"><%= f.hidden_field :commentable_type, value: "Article", rows: 10%></div>
+                    <div class="col-10"><%= f.hidden_field :commentable_id, value: article.id, rows: 10%></div>
+                    <div class="col-10"><%= f.hidden_field :homepage_id, value: params[:id], rows: 10 if params[:id] != nil%></div>
+                </div>
+                <div class="form-group row justify-content-center"><%= f.submit class:"btn btn-outline-light btn-dark"%></div>
+            <%end%>
+        </div>
+
+    </div>
+
+</div>
