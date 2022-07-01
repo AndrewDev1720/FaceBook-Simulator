@@ -1,6 +1,6 @@
 <div class="container col-xl", style = "text-align: center;">
 <h1 class ="text-center mt-4"><Strong><%=@user.username%>'s profile </strong></h1>
-<%= gravatar_for @user%>
+<%= avatar_for @user%>
 <%if logged_in?()%>
     <%if current_user == @user%>
         <div class = "text-center mt-4">

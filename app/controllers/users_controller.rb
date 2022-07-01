@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action(:getUser, only: [:show, :edit, :update, :destroy])
   before_action(:check_owner, only: [:edit, :update, :destroy])
 
+
+
   def show
     @friend_request = FriendRequest.new()
     @articles = @user.articles.paginate(page: params[:page], per_page: 5)
@@ -48,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   private def user_params()
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :avatar)
   end
 
   private def getUser()

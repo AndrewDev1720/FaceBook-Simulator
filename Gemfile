@@ -10,6 +10,7 @@ gem 'rails', '~> 6.1.6'
 # group :development, :test do
 #  gem 'sqlite3'
 # end
+gem 'carrierwave', '~> 2.0'
 
 # group :production do
 #   gem 'pg'

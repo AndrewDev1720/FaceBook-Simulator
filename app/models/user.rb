@@ -1,3 +1,5 @@
+require 'carrierwave/orm/activerecord'
+
 class User < ApplicationRecord
 
   has_many :comments
@@ -19,6 +21,8 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 3, maximum: 105}, format: {with: VALID_EMAIL_REGEX}
 
+  mount_uploader :avatar, AvatarUploader
+  
   def getFriends()
     self.friends.concat(self.inverse_friends)
   end

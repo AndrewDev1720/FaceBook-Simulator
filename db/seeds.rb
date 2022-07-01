@@ -8,7 +8,7 @@
 User.destroy_all
 FriendRequest.destroy_all
 for i in 1..10 do
-    User.create!(username: SecureRandom.alphanumeric(5), email: ("qat#{i}@gmail.com"), password:"123456")
+    User.create!(username: SecureRandom.alphanumeric(5), email: ("qat#{i}@gmail.com"), password:"123456", avatar: "carbon.png")
 end
 
 puts "Created #{User.count} users"
