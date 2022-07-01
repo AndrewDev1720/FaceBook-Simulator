@@ -11,7 +11,7 @@ gem 'rails', '~> 6.1.6'
 #  gem 'sqlite3'
 # end
 gem 'carrierwave', '~> 2.0'
-
+gem "devise"
 # group :production do
 #   gem 'pg'
 # end
