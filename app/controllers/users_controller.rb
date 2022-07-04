@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def show
     @friend_request = FriendRequest.new()
     @articles = @user.articles.paginate(page: params[:page], per_page: 5)
-    @comments = @user.comments
+    # @comments = @user.comments
     @comment = Comment.new()
   end
 
@@ -22,18 +22,22 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
+      # session[:user_id] = @user.id
       flash[:notice] = "Welcome to the Alpha Blog #{@user.username}, you have successfully signed up"
-      redirect_to articles_path
+    return redirect_to articles_path
     else
       render 'new'
     end
   end
 
-  def update
+  def edits
+  end
+
+  def updates
     if @user.update(user_params)
       flash[:notice] = "Congrats #{@user.username}, you have successfully updated your information!" 
-      redirect_to user_path(@user)
+      # byebug
+      return redirect_to user_path(@user)
     else
       render 'edit'
     end
@@ -44,7 +48,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    session[:user_id] = nil
+    # session[:user_id] = nil
     flash[:notice] = "Account and all associated articles have successfully deleted"
     redirect_to root_path
   end

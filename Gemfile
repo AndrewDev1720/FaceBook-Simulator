@@ -16,7 +16,8 @@ gem "devise"
 #   gem 'pg'
 # end
 gem 'pg'
-
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
