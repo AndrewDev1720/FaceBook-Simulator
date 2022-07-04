@@ -9,11 +9,14 @@ class ApplicationController < ActionController::Base
   protected def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :email, :password)}
 
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :email, :password, :current_password)}
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :email, :password, :current_password, :avatar)}
   end
   # def current_user()
   #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
   # end
+  def after_update_path_for(resource)
+    redirect_to user_path(@user)
+  end
 
   def logged_in?()
     !!current_user()

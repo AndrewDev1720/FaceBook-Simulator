@@ -19,39 +19,39 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      # session[:user_id] = @user.id
-      flash[:notice] = "Welcome to the Alpha Blog #{@user.username}, you have successfully signed up"
-    return redirect_to articles_path
-    else
-      render 'new'
-    end
-  end
+  # def create
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     # session[:user_id] = @user.id
+  #     flash[:notice] = "Welcome to the Alpha Blog #{@user.username}, you have successfully signed up"
+  #   return redirect_to articles_path
+  #   else
+  #     render 'new'
+  #   end
+  # end
 
-  def edits
-  end
+  # def edits
+  # end
 
-  def updates
-    if @user.update(user_params)
-      flash[:notice] = "Congrats #{@user.username}, you have successfully updated your information!" 
-      # byebug
-      return redirect_to user_path(@user)
-    else
-      render 'edit'
-    end
-  end
+  # def update
+  #   if @user.update(user_params)
+  #     flash[:notice] = "Congrats #{@user.username}, you have successfully updated your information!" 
+  #     # byebug
+  #     return redirect_to user_path(@user)
+  #   else
+  #     render 'edit'
+  #   end
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def destroy
-    @user.destroy
-    # session[:user_id] = nil
-    flash[:notice] = "Account and all associated articles have successfully deleted"
-    redirect_to root_path
-  end
+  # def destroy
+  #   @user.destroy
+  #   # session[:user_id] = nil
+  #   flash[:notice] = "Account and all associated articles have successfully deleted"
+  #   redirect_to root_path
+  # end
 
   private def user_params()
     params.require(:user).permit(:username, :email, :password, :avatar)

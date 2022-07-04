@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
+    registrations: "users/registrations",
     sessions: 'users/sessions', 
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
@@ -10,8 +11,8 @@ Rails.application.routes.draw do
   root(to: 'pages#home')
   get 'about', to: 'pages#about'
   get 'articles/funny', to: 'articles#funny'
-  get '/users/:id/edit', to: 'users#edits'
-  patch '/users/:id/edit', to: 'users#updates'
+  # get '/users/:id/edit', to: 'users#edits'
+  # patch '/users/:id/edit', to: 'users#updates'
   resources :articles
   get 'signup', to: 'users#new'
   # post 'users', to: 'users#create'
