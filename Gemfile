@@ -11,12 +11,13 @@ gem 'rails', '~> 6.1.6'
 #  gem 'sqlite3'
 # end
 gem 'carrierwave', '~> 2.0'
-
+gem "devise"
 # group :production do
 #   gem 'pg'
 # end
 gem 'pg'
-
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets

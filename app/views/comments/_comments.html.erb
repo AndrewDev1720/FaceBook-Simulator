@@ -1,6 +1,7 @@
 <div class="container">
     <h5>Comments:</h5>
-    <%for comment in @comments do%>
+    <%comments = article.comments%>
+    <%for comment in comments do%>
         <div class="row justify-content-xl-center">
             <div class="col-9 mt-4">
                 <div class="card text-center shadow mb-1 bg-white rounded">

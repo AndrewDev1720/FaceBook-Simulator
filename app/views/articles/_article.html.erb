@@ -14,7 +14,7 @@
                         <%=button_to "Unlike", like_path(likeList.first), method: :delete, params: { user_id: current_user.id, likable_id: article.id, likable_type: "Article" }, form: {style: 'display:inline-block;'}%> <%= article.likes.count%>
                     <%end%> 
                     <%=render 'comments/form', article: article%>
-                    <%=render 'comments/comments'%>
+                    <%=render 'comments/comments', article: article%>
                     <%= link_to "View", article_path(article.id), class:"btn btn-outline-success"%>
                     <%if logged_in?() && (current_user().admin?() || current_user().username == article.user.username)%>
                         <%= link_to "Edit", edit_article_path(article.id), class:"btn btn-outline-primary"%>

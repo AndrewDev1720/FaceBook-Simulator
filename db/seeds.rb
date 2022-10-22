@@ -8,7 +8,10 @@
 User.destroy_all
 FriendRequest.destroy_all
 for i in 1..10 do
-    User.create!(username: SecureRandom.alphanumeric(5), email: ("qat#{i}@gmail.com"), password:"123456", avatar: "carbon.png")
+    User.create!(username: ("user#{i}"), email: ("qat#{i}@gmail.com"), password:"123456", avatar: "carbon.png")
+    post = User.last.articles.build(title: "user#{i} title", description: "user#{i} content")
+    post.save!
 end
 
 puts "Created #{User.count} users"
+puts "Created #{Article.count} posts"
