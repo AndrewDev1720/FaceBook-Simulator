@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   resources :friendships
   resources :comments
   resources :likes
+  resources :hashtags, except: [:destroy]
 end

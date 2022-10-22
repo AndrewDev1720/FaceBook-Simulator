@@ -8,9 +8,14 @@ class FriendshipsController < ApplicationController
 
     def destroy
         target = params[:friend_b_id].to_i
-        current_user.friendships.where(user_id: current_user.id, friend_id: target).delete_all
-        User.find(target).friendships.where(user_id: target,friend_id: current_user.id).delete_all
-        redirect_to user_path(target)
+        if(target != 0)
+            current_user.friendships.where(user_id: current_user.id, friend_id: target).delete_all
+            User.find(target).friendships.where(user_id: target,friend_id: current_user.id).delete_all
+            redirect_to user_path(target)
+        else
+            target = params[:id].to_i
+            Friendship.find(target).delete
+        end
     end
     
     private def friendship_params()

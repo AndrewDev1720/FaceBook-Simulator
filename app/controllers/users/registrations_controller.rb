@@ -20,7 +20,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    byebug
     redirect_to user_path(@user)
   end
 

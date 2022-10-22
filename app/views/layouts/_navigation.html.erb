@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <%if logged_in?()%>
-          <%=link_to "ALPHA BLOG", articles_path, class: "navbar-brand", id: "logo"%>
+          <%=link_to "BondHub", articles_path, class: "navbar-brand", id: "logo"%>
         <%else%>
-          <%=link_to "ALPHA BLOG", root_path, class: "navbar-brand", id: "logo"%>
+          <%=link_to "Bondhub", root_path, class: "navbar-brand", id: "logo"%>
         <%end%>
       <%# <a class="navbar-brand" id = "logo" href='root_url'>ALPHA BLOG</a> %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,18 +12,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <%= link_to "Bloggers", users_path, class: "nav-link"%>
+            <%= link_to "BondStars", users_path, class: "nav-link"%>
             <%# <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Article
+              BondsFeed
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "All articles", articles_path,class: "dropdown-item"%>
+              <%= link_to "All Posts", articles_path,class: "dropdown-item"%>
               <%if logged_in?()%>
-                <%= link_to "New Article", new_article_path, class:"dropdown-item"%>
-                <%= link_to "Your articles", user_path(current_user.id),class: "dropdown-item"%>
+                <%= link_to "New Post", new_article_path, class:"dropdown-item"%>
+                <%= link_to "Your Posts", user_path(current_user.id),class: "dropdown-item"%>
               <%end%> 
             </div>
           </li>

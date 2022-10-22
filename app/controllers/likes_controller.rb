@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     end
 
     def destroy
-        Like.where(user_id: current_user, likable_id: params[:likable_id], likable_type: params[:likable_type]).delete_all
+        params[:id] ? deletingLike = Like.find(params[:id].to_i).delete : Like.where(user_id: current_user, likable_id: params[:likable_id], likable_type: params[:likable_type]).delete_all
         redirect_to articles_path
     end
 

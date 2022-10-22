@@ -27,7 +27,7 @@
         </div>
     <%end%>
 <%end%>
-<h3 class ="text-center mt-4"><Strong><%=@user.username%>'s articles </strong></h1>
+<h3 class ="text-center mt-4"><Strong><%=@user.username%>'s posts </strong></h1>
 <%= render 'articles/article'%>
 </div>
 <%= will_paginate @articles, class: "apple_pagination", container: :false %>
